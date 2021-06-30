@@ -9,7 +9,7 @@ newArray = np.array([[29,49,4],[93,49,2]])
 print(p)
 columnIndex = len(p[1,:])-1
 rowIndex = 0
-numTosearch = 50
+numTosearch = 29
 def searchOrderedarray(p,columnIndex,rowIndex,numTosearch):
     myColumnIndex = columnIndex
     print(myColumnIndex)
