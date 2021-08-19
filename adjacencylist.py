@@ -39,3 +39,5 @@ mygraphObject.add_Edge('C','E')
 mygraphObject.add_Edge('E','A')
 print(mygraphObject.print_adjList())
 print(mygraphObject.getNodeDegree('E'))
+
+

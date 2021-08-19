@@ -35,6 +35,6 @@ BT1.add2Tree(8)     # None 120        200 rightNode                None         
 BT1.add2Tree(120)
 BT1.add2Tree(8)
 
-print(BT1.root.leftNode.rightNode)
+print(BT1.root.rightNode.)
 
 
