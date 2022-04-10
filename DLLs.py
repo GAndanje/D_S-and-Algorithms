@@ -68,3 +68,4 @@ DllObject.insert2Dll(1,3)
 print(DllObject.displayDll())
 print(DllObject.head.nextNode.nextNode.prevNode.prevNode.prevNode)
 print(DllObject.head.nextNode.nextNode.nextNode.nextNode.nextNode.prevNode.prevNode.prevNode.prevNode.prevNode.prevNode)
+

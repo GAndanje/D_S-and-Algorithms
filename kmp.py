@@ -14,7 +14,6 @@ def kmp(pattern2Search,string2Search):
     return False
 
 
-
 def buildTable(stringOject):
     j=1
     i=0
