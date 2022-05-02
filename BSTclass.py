@@ -1,40 +1,82 @@
-class BinaryNode:
-    def __init__(self,nodevalue):
-        self.nodeValue = nodevalue
-        self.leftNode = None
-        self.rightNode = None
-class BinaryTree:
-    def __init__(self,root=None):
-        self.root = root
-    def add2Tree(self,nodeobject):
-        if self.root == None:
-            self.root = BinaryNode(nodeobject)
-            return self
-        currentBNode= self.root
+
+class BST:
+    def __init__(self,value):
+        self.value = value
+        self.leftChild=None
+        self.rightChild=None
+    def insert(self,value):
+        currentNode=self
         while True:
-            if nodeobject >= currentBNode.nodeValue:
-                if currentBNode.rightNode is None:
-                    currentBNode.rightNode = BinaryNode(nodeobject)
-                    return self
+            if value<currentNode.value:
+                if currentNode.leftChild==None:
+                    currentNode.leftChild=BST(value)
+                    break
                 else:
-                    currentBNode = currentBNode.rightNode
-            elif nodeobject < currentBNode.nodeValue:
-                if currentBNode.leftNode == None:
-                    currentBNode.leftNode = BinaryNode(nodeobject)
-                    return self
+                    currentNode=currentNode.leftChild
+            else:
+                if currentNode.rightChild==None:
+                    currentNode.rightChild=BST(value)
+                    break
                 else:
-                    currentBNode = currentBNode.leftNode
-BT1 = BinaryTree()       # 100 root                                  100         root
-BT1.add2Tree(100)      #  /     \                                    /    \
-BT1.add2Tree(150)      # 8     150  rightNode                      8      200        root.rightNode
-BT1.add2Tree(200)   #   /     /    \                              /          \
-BT1.add2Tree(8)     # None 120        200 rightNode                None         None        root.rightNode.rightnode
-                         # /          \
-                    #  None             None
+                    currentNode=currentNode.rightChild
+        return self
+    def search(self,value):
+        currentNode=self
+        while currentNode!=None:
+            if value<currentNode.value:
+                currentNode=currentNode.leftChild
+            elif value>currentNode.value:
+                currentNode=currentNode.rightChild
+            else:
+                return True
+        return False
+    def remove(self,value,parentNode=None):
+        currentNode=self
+        while currentNode is not None:
+            if value<currentNode.value:
+                parentNode=currentNode
+                currentNode=currentNode.leftChild
+            elif value>currentNode.value:
+                parentNode=currentNode
+                currentNode=currentNode.rightChild
+            else:
+                if currentNode.leftChild is not None and currentNode.rightChild is not None:
+                    currentNode.value=currentNode.rightChild.getMinValue()
+                    currentNode.rightChild.removeMinValue()
+                elif parentNode is None:
+                    if currentNode.leftChild is None:
+                        currentNode.value=currentNode.rightChild.value
+                        currentNode.leftChild=currentNode.rightChild.leftChild
+                        currentNode.rightChild=currentNode.rightChild.rightChild
+                    else:
+                        currentNode.value=currentNode.leftChild.value
+                        currentNode.rightChild=currentNode.leftChild.rightChild
+                        currentNode.leftChild=currentNode.leftChild.leftChild
+                elif parentNode.leftChild == currentNode:
+                    parentNode.leftChild=currentNode.leftChild if currentNode.leftChild is not None else currentNode.rightChild
+                elif parentNode.rightChild==currentNode:
+                    parentNode.rightChild=currentNode.leftChild if currentNode.leftChild is not None else currentNode.rightChild
+                break
+        return self
 
-BT1.add2Tree(120)
-BT1.add2Tree(8)
+    def getMinValue(self):
+        currentNode=self
+        while currentNode.leftChild is not None:
+            currentNode=currentNode.leftChild
+        return currentNode.value
+    def removeMinValue(self):
+        currentNode=self
+        while currentNode.leftChild is not None:
+            currentNode=currentNode.leftChild
+        currentNode=None
 
-print(BT1.root.rightNode.)
+
+
+
+myLadder=BST(8)
+myLadder.insert(0).insert(2).insert(10).insert(9)
+print(myLadder.search(9))
+print(myLadder.remove(9))
+print(myLadder.search(9))
 
 

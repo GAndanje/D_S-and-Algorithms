@@ -115,14 +115,14 @@ class Node:
 
 myCache=lruCache(5)
 
-myCache.addToCache('chicken',45)
-myCache.addToCache('cows',20)
-print(myCache.addToCache('dogs',4))
-print(myCache.addToCache('cats',2))
-print(myCache.addToCache('sheep',10))
-print(myCache.addToCache('mangoes',1000))
-print(myCache.addToCache('mangoes',.8))
-print(myCache.findKey('jdjljf'))
+# myCache.addToCache('chicken',45)
+# myCache.addToCache('cows',20)
+# print(myCache.addToCache('dogs',4))
+# print(myCache.addToCache('cats',2))
+# print(myCache.addToCache('sheep',10))
+# print(myCache.addToCache('mangoes',1000))
+# print(myCache.addToCache('mangoes',.8))
+# print(myCache.findKey('jdjljf'))
 
 
 
